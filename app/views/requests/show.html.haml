@@ -1,0 +1,8 @@
+%h1= @request.description
+%p= @request.number_of_trucks
+%p= @request.address
+%p= @request.date
+
+= link_to "All Requests", requests_path
+= link_to "Edit Request", edit_request_path(@request)
+= link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }

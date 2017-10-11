@@ -1,0 +1,6 @@
+= simple_form_for @request do |f|
+  = f.input :description
+  = f.input :number_of_trucks
+  = f.input :address
+  = f.input :date, as: :datetime
+  = f.button :submit
