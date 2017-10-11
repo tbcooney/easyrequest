@@ -1,0 +1,6 @@
+%h1 Team Members
+- @team_members.each do |team_member|
+  %p= link_to team_member.first_name, team_member
+  %p= team_member.last_name
+
+= link_to "Add Team Member", new_team_member_path
