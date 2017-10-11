@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_action :find_request, only: [:show, :edit, :update, :destroy]
 
   def index
-    @requests = Request.all.order("created_at DESC")
+    @requests = Request.where(user_id: current_user).order("created_at DESC")
   end
 
   def show
@@ -10,11 +10,11 @@ class RequestsController < ApplicationController
   end
 
   def new
-    @request = Request.new
+    @request = current_user.requests.build
   end
 
   def create
-    @request = Request.new(request_params)
+    @request = current_user.requests.build(request_params)
 
     if @request.save
       redirect_to @request
