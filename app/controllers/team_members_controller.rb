@@ -24,11 +24,16 @@ class TeamMembersController < ApplicationController
   end
 
   def update
-
+    if @team_member.update(team_member_params)
+      redirect_to @team_member
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-
+    @team_member.destroy
+    redirect_to team_members_path
   end
 
 private
