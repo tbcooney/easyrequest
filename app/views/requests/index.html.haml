@@ -1,25 +1,12 @@
-%table{:border => 1}
-  %tbody
-    %tr
-      %td description:
-      %td number_of_trucks:
-      %td address:
-      %td date:
-      %td assigned to:
-      %td rate:
-      %td created_at:
-    - @requests.each do |request|
-      %tr
-        %td= link_to request.description, request
-        %td= request.number_of_trucks
-        %td= request.address
-        %td= request.date
-        - if request.team_member
-          %td= request.team_member.full_name
-          %td= request.rate
-        - else
-          %td= "Not yet assigned"
-          %td= "Not yet assigned"
-        %td= time_ago_in_words(request.created_at)
+- @requests.each do |request|
+  %p= link_to request.description, request
+  %p= request.number_of_trucks
+  %p= request.address
+  %p= request.date
+  - if request.team_member
+    %p Assigned To
+    %p= request.team_member.full_name
+    %p= request.rate
+  %p= time_ago_in_words(request.created_at)
 
 = link_to "New Request", new_request_path
