@@ -3,11 +3,11 @@ class Request < ApplicationRecord
   belongs_to :team_member, optional: true
 
   # Callbacks
-  # before_validation :set_rate
+  before_validation :set_rate
 
 protected
 
   def set_rate
-    self.rate = team_member.rate
+    self.rate = team_member.rate if team_member.present?
   end
 end
