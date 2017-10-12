@@ -1,12 +1,15 @@
-%h1= @request.description
-%p= @request.number_of_trucks
-%p= @request.address
-%p= @request.date
-- if @request.team_member
-  %p Assigned To
-  %p= @request.team_member.first_name
-  %p= @request.rate
+.wrapper_with_padding
+  #request_show
+    %h1= @request.description
+    %p= @request.number_of_trucks
+    %p= @request.address
+    %p= @request.date
+    - if @request.team_member
+      %p Assigned To
+      %p= @request.team_member.first_name
+      %p= @request.rate
 
-= link_to "All Requests", requests_path
-= link_to "Edit Request", edit_request_path(@request)
-= link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }
+    .buttons
+      = link_to "All Requests", requests_path, class: "button"
+      = link_to "Edit Request", edit_request_path(@request), class: "button"
+      = link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button"

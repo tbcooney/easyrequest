@@ -1,12 +1,19 @@
-- @requests.each do |request|
-  %p= link_to request.description, request
-  %p= request.number_of_trucks
-  %p= request.address
-  %p= request.date
-  - if request.team_member
-    %p Assigned To
-    %p= request.team_member.full_name
-    %p= request.rate
-  %p= time_ago_in_words(request.created_at)
-
-= link_to "New Request", new_request_path
+.wrapper_with_padding
+  #requests.clearfix
+    - unless @requests.blank?
+      - @requests.each do |request|
+        %a{href: (url_for [request])}
+          .request
+            %p= request.description
+            %p= request.number_of_trucks
+            %p= request.address
+            %p= request.date
+            - if request.team_member
+              %p Assigned To
+              %p= request.team_member.full_name
+              %p= request.rate
+            %p= time_ago_in_words(request.created_at)
+    - else
+      %h2 Create a request
+      %p It appears you haven't created any requests yet. Let's fixed that by creating a new request below.
+      %button= link_to "Create Request", new_request_path
