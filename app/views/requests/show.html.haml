@@ -2,6 +2,8 @@
 %p= @request.number_of_trucks
 %p= @request.address
 %p= @request.date
+%p Assigned To
+%p= @request.team_member.first_name
 
 = link_to "All Requests", requests_path
 = link_to "Edit Request", edit_request_path(@request)

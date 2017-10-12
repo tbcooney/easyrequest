@@ -1,6 +1,8 @@
 - @requests.each do |request|
   %p= link_to request.description, request
   %p= request.date
+  %p Assigned To
+  %p= request.team_member.full_name
   %p= time_ago_in_words(request.created_at)
 
 = link_to "New Request", new_request_path
