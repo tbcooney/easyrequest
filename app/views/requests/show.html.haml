@@ -4,6 +4,7 @@
 %p= @request.date
 %p Assigned To
 %p= @request.team_member.first_name
+%p= @request.rate
 
 = link_to "All Requests", requests_path
 = link_to "Edit Request", edit_request_path(@request)
