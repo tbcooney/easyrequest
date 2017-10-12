@@ -1,9 +1,9 @@
 class Request < ApplicationRecord
   belongs_to :user
-  belongs_to :team_member
+  belongs_to :team_member, optional: true
 
   # Callbacks
-  before_validation :set_rate
+  # before_validation :set_rate
 
 protected
 
