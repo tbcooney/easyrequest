@@ -1,3 +1,65 @@
 // Place all the styles related to the Requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#requests {
+  li {
+    list-style: none;
+  }
+  .request {
+    width: auto;
+    display: block;
+    border-bottom: 1px solid #E6E8EB;
+    position: relative;
+    padding: 16px;
+      .description {
+        margin: 0;
+        letter-spacing: 1px;
+        transition: all 0.25s ease 0s;
+        a {
+          &:hover {
+            color: #ff7e82;
+          }
+        }
+      }
+      .assigned_to {
+        display: inline-block;
+        font-size: 12px;
+        margin: 0;
+        color: #637282;
+      }
+      .created_at {
+        display: inline-block;
+        font-size: 12px;
+        margin: 0;
+        color: #637282;
+      }
+  }
+}
+
+a.view_request {
+  display: inline-block;
+  border-radius: 4px;
+  transition: all 0.25s ease 0s;
+  float: right;
+  &:hover {
+    opacity:.8
+  }
+}
+
+.page-header__heading {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  color: #1B2733;
+}
+
+.tab {
+  color: #1B2733;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #1B2733;
+}
