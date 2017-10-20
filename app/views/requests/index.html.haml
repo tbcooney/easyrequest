@@ -20,6 +20,4 @@
                 %p.assigned_to= link_to request.team_member.full_name, request.team_member
               %p.created_at= "Created at " + time_ago_in_words(request.created_at) + " ago"
     - else
-      %h2 Create a request
-      %p It appears you haven't created any requests yet. Let's fixed that by creating a new request below.
-      = link_to "Create Request", new_request_path, class: 'button-tertiary'
+    = render 'empty_requests'

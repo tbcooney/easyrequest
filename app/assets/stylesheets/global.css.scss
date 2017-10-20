@@ -37,7 +37,7 @@ img {
   color: #fff;
   border: none;
   border-radius: .1875rem;
-  padding: .375rem;
+  padding: .375rem 2rem;
     &:hover {
       color: #fff;
       background-color: #007af5;
@@ -113,6 +113,17 @@ img {
 
 .block_label {
   margin-bottom: 12px;
+}
+
+._empty {
+  width: auto;
+  display: block;
+  border-bottom: 1px solid #E6E8EB;
+  position: relative;
+  padding: 2rem 0;
+}
+._block {
+  margin: 2rem 0;
 }
 
 #content {

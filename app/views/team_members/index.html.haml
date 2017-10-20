@@ -14,6 +14,4 @@
             %p.created_at= "Created at " + time_ago_in_words(team_member.created_at) + " ago"
             = link_to "View", team_member, class: 'view_team_member'
     - else
-      %h2 Add a Team Member
-      %p It appears you haven't added any Team Members yet. Let's fixed that by creating a new Team Member below.
-      = link_to "Add Team Member", new_team_member_path, class:'button-tertiary'
+    = render 'empty_team'
