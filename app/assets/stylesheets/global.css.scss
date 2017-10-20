@@ -11,6 +11,11 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
 }
 
+img {
+  width: 32px;
+  height: 32px;
+}
+
 .wrapper {
   width: 80%;
   margin: 0 auto;
@@ -68,10 +73,10 @@ header {
   .header_inner {
     width: 90%;
     margin: 0 auto;
-    #logo {
+    #logo img {
       display: inline-block;
-      width: auto;
-      float: left;
+      width: 144px;
+      height: auto;
     }
     nav {
       float: right;
@@ -92,8 +97,9 @@ header {
 footer {
   border-top: 1px solid #DCE0E0;
   width: 100%;
-  padding: 2rem 0;
-  text-align: center;
+  padding: 1rem 0;
+  position: absolute;
+  bottom: 0;
   p {
     margin: 0;
     font-size: .85rem;
@@ -101,9 +107,10 @@ footer {
   .header_inner {
     width: 90%;
     margin: 0 auto;
-    #logo {
+    #logo img {
       display: inline-block;
-      width: 10rem;
+      width: 144px;
+      height: auto;
       float: left;
     }
     nav {

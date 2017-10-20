@@ -1,18 +1,24 @@
 .wrapper_with_padding
   #requests.clearfix
-    %h1{class: "page-header__heading"}Job Requests
+    .requests_header
+      %h1{class: "page-header__heading"}Job Requests
+      .new_request
+        = link_to "Create Request", new_request_path
     %h5{class: "tab"} Open Requests
     - unless @requests.blank?
       - @requests.each do |request|
         %li
           .request
-            = link_to(request_path(request.id)) do
-              %p.description= request.description
+            %p.description= link_to request.description, request
+            - if !request.team_member
+              %p.not_assigned Not assigned
+            .request_block
               - if request.team_member
                 %p.assigned_to= "Assigned to "
+                =image_tag request.team_member.avatar.url(:thumb), class: 'avatar'
                 %p.assigned_to= link_to request.team_member.full_name, request.team_member
               %p.created_at= "Created at " + time_ago_in_words(request.created_at) + " ago"
-              %a= link_to "View", request, class: 'view_request'
+            = link_to "View", request, class: 'view_request'
     - else
       %h2 Create a request
       %p It appears you haven't created any requests yet. Let's fixed that by creating a new request below.

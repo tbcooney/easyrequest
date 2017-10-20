@@ -1,3 +1,67 @@
 // Place all the styles related to the TeamMembers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#team_members {
+  li {
+    list-style: none;
+  }
+  .team_members_header {
+    .new_team_member {
+      display: inline-block;
+      float: right;
+    }
+    .page-header__heading {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 32px;
+      font-weight: normal;
+      padding: 0;
+      margin: 0;
+      color: #1B2733;
+    }
+  }
+  .team_member {
+    width: auto;
+    display: block;
+    border-bottom: 1px solid #E6E8EB;
+    position: relative;
+    padding: 16px;
+      .full_name_team_member {
+        margin: 0;
+        letter-spacing: 1px;
+        transition: all 0.25s ease 0s;
+        a {
+          &:hover {
+            color: #ff7e82;
+          }
+        }
+      }
+      .avatar {
+        img {
+         margin-right: 1rem;
+         float: left;
+         display: block;
+         -o-object-fit: cover;
+         object-fit: cover;
+         border-radius: 1000px;
+        }
+      }
+      .created_at {
+        display: inline-block;
+        font-size: 12px;
+        margin: 0;
+        color: #637282;
+      }
+  }
+}
+
+a.view_team_member {
+  display: inline-block;
+  border-radius: 4px;
+  transition: all 0.25s ease 0s;
+  float: right;
+  &:hover {
+    opacity:.8
+  }
+}

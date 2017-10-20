@@ -8,11 +8,12 @@
 %body
   %header
     .header_inner
-      = link_to image_tag(''), root_path, id: "logo"
+      = link_to image_tag('easyrequest-logo.svg'), root_path, id: "logo"
       %nav
         - if user_signed_in?
+          = link_to "Requests", requests_path
+          = link_to "Team Members", team_members_path
           = link_to "Account", edit_user_registration_path
-          = link_to "New Request", new_request_path
           = link_to "Sign Out", destroy_user_session_path, method: :delete
         - else
           = link_to "Sign Up", new_user_registration_path
@@ -25,11 +26,12 @@
 
 %footer
   .header_inner
-    = link_to image_tag( ''), root_path, id: "logo"
+    = link_to image_tag('easyrequest-logo.svg'), root_path, id: "logo"
     %nav
       - if user_signed_in?
+        = link_to "Requests", requests_path
+        = link_to "Team Members", team_members_path
         = link_to "Account", edit_user_registration_path
-        = link_to "New Request", new_request_path
         = link_to "Sign Out", destroy_user_session_path, method: :delete
       - else
         = link_to "Sign Up", new_user_registration_path

@@ -1,8 +1,11 @@
-%h1= @team_member.first_name
-%h1= @team_member.last_name
-%h2= @team_member.company_name
-%h2= @team_member.email_address
+.wrapper_with_padding
+  #team_members.clearfix
+    =image_tag @team_member.avatar
+    %h1= @team_member.first_name
+    %h1= @team_member.last_name
+    %h2= @team_member.company_name
+    %h2= @team_member.email_address
 
-= link_to "All Team Members", team_members_path
-= link_to "Edit", edit_team_member_path(@team_member)
-= link_to "Delete Team Member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }
+    = link_to "All Team Members", team_members_path
+    = link_to "Edit", edit_team_member_path(@team_member)
+    = link_to "Delete Team Member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }
