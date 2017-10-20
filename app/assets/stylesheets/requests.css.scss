@@ -37,6 +37,25 @@
   }
 }
 
+#request_show {
+  .request {
+    margin-bottom: 2rem;
+      .request_block {
+        display: inline-block;
+        margin-right: 2rem;
+      }
+  }
+  .assigned_to {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E6E8EB;
+    color: $light_gray;
+  }
+  h4 {
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
 a.view_request {
   display: inline-block;
   border-radius: 4px;

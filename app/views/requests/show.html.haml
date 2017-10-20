@@ -1,12 +1,23 @@
 .wrapper_with_padding
-  #request_show
-    %h1= @request.description
-    %p= @request.number_of_trucks
-    %p= @request.address
-    %p= @request.date
+  #request_show.clearfix
+    .request
+      %h1 Request details
+      %p= "Created on #{@request.created_at.strftime("%B %d")} by #{@request.user.email}"
+      %h2= @request.description
+      .request_block
+        %h4 Number of trucks
+        %p= @request.number_of_trucks
+      .request_block
+        %h4 Address
+        %p= @request.address
+      .request_block
+        %h4 Created on
+        %p= @request.date.strftime("%B %d")
+
     - if @request.team_member
-      %p Assigned To
-      %p= @request.team_member.first_name
+      .assigned_to
+        %h4 Assigned to
+      %p= @request.team_member.full_name
       %p= @request.rate
 
     .buttons

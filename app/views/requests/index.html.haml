@@ -11,7 +11,7 @@
               - if request.team_member
                 %p.assigned_to= "Assigned to "
                 %p.assigned_to= link_to request.team_member.full_name, request.team_member
-              %p.created_at= time_ago_in_words(request.created_at)
+              %p.created_at= "Created at " + time_ago_in_words(request.created_at) + " ago"
               %a= link_to "View", request, class: 'view_request'
     - else
       %h2 Create a request
