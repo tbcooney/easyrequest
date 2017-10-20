@@ -31,11 +31,6 @@
         margin: 0;
         letter-spacing: 1px;
         transition: all 0.25s ease 0s;
-        a {
-          &:hover {
-            color: #ff7e82;
-          }
-        }
       }
       .avatar {
         img {
@@ -53,6 +48,39 @@
         margin: 0;
         color: #637282;
       }
+  }
+}
+
+#team_member_show {
+  .team_member {
+    margin-bottom: 2rem;
+      .team_member_block {
+        display: inline-block;
+        margin-right: 2rem;
+      }
+      .full_name_team_member {
+        letter-spacing: 1px;
+        transition: all 0.25s ease 0s;
+      }
+      .avatar {
+        img {
+         margin-right: 1rem;
+         float: left;
+         display: block;
+         -o-object-fit: cover;
+         object-fit: cover;
+         border-radius: 1000px;
+        }
+      }
+  }
+  .assigned_to {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E6E8EB;
+    color: $light_gray;
+  }
+  h4 {
+    font-weight: 600;
+    margin: 0;
   }
 }
 

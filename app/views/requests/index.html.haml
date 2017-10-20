@@ -18,7 +18,7 @@
                 =image_tag request.team_member.avatar.url(:thumb), class: 'avatar'
                 %p.assigned_to= link_to request.team_member.full_name, request.team_member
               %p.created_at= "Created at " + time_ago_in_words(request.created_at) + " ago"
-            = link_to "View", request, class: 'view_request'
+            %a= link_to "View", request, class: 'view_request'
     - else
       %h2 Create a request
       %p It appears you haven't created any requests yet. Let's fixed that by creating a new request below.

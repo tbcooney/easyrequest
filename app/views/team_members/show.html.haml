@@ -1,11 +1,29 @@
 .wrapper_with_padding
-  #team_members.clearfix
-    =image_tag @team_member.avatar
-    %h1= @team_member.first_name
-    %h1= @team_member.last_name
-    %h2= @team_member.company_name
-    %h2= @team_member.email_address
+  #team_member_show.clearfix
+    .team_member
+      %h1 Team member details
+      %p= "Created on #{@team_member.created_at.strftime("%B %d")}"
+      .avatar=image_tag @team_member.avatar
+      %h2.full_name_team_member= @team_member.full_name
+      .team_member_block
+        %h4 Company Name
+        %p= @team_member.company_name
+      .team_member_block
+        %h4 Email Address
+        %p= @team_member.email_address
+      .team_member_block
+        %h4 Phone Number
+        %p= @team_member.phone_number
+      .team_member_block
+        %h4 Rate
+        %p= @team_member.rate
 
-    = link_to "All Team Members", team_members_path
-    = link_to "Edit", edit_team_member_path(@team_member)
-    = link_to "Delete Team Member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }
+    .assigned_to
+      %h4 Assigned to
+    - @team_member.requests.each do |request|
+      %p.description= link_to request.description, request
+
+    .buttons
+      = link_to "All Requests", team_members_path, class: "button"
+      = link_to "Edit Request", edit_team_member_path(@team_member), class: "button"
+      = link_to "Delete Request", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button"

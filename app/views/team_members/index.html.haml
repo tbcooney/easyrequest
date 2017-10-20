@@ -9,11 +9,10 @@
       - @team_members.each do |team_member|
         %li
           .team_member
-            = link_to(team_member_path(team_member.id)) do
-              .avatar=image_tag team_member.avatar.url(:thumb)
-              %p.full_name_team_member= team_member.full_name
-              %p.created_at= "Created at " + time_ago_in_words(team_member.created_at) + " ago"
-              %a= link_to "View", team_member, class: 'view_team_member'
+            .avatar=image_tag team_member.avatar.url(:thumb)
+            %p.full_name_team_member= link_to team_member.full_name, team_member
+            %p.created_at= "Created at " + time_ago_in_words(team_member.created_at) + " ago"
+            %a= link_to "View", team_member, class: 'view_team_member'
     - else
       %h2 Create a team_member
       %p It appears you haven't created any team_member yet. Let's fixed that by creating a new team_member below.
