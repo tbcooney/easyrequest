@@ -3,5 +3,6 @@
   = f.input :description
   = f.input :number_of_trucks
   = f.input :address
-  = f.input :date, as: :datetime
-  = f.button :submit, class: "button"
+  = f.input :date, as: :date, html5: true
+  = f.input :note, as: :text
+  = f.button :submit, class: "button-tertiary"
