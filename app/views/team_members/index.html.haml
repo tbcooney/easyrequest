@@ -4,8 +4,8 @@
       %h1{class: "page-header__heading"}Team Members
       .new_team_member
         = link_to "Add Team Member", new_team_member_path
-    %h5{class: "tab"} Active members
     - unless @team_members.blank?
+      %h5{class: "tab"} Active members
       - @team_members.each do |team_member|
         %li
           .team_member
@@ -14,6 +14,6 @@
             %p.created_at= "Created at " + time_ago_in_words(team_member.created_at) + " ago"
             = link_to "View", team_member, class: 'view_team_member'
     - else
-      %h2 Create a team_member
-      %p It appears you haven't created any team_member yet. Let's fixed that by creating a new team_member below.
-      %button= link_to "Create team_member", new_team_member_path
+      %h2 Add a Team Member
+      %p It appears you haven't added any Team Members yet. Let's fixed that by creating a new Team Member below.
+      = link_to "Add Team Member", new_team_member_path, class:'button-tertiary'

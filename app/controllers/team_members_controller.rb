@@ -2,15 +2,15 @@ class TeamMembersController < ApplicationController
   before_action :find_team_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @team_members = TeamMember.all.order("created_at DESC")
+    @team_members = TeamMember.where(user_id: current_user).order("created_at DESC")
   end
 
   def new
-    @team_member = TeamMember.new
+    @team_member = current_user.team_members.build
   end
 
   def create
-    @team_member = TeamMember.new(team_member_params)
+    @team_member = current_user.team_members.build(team_member_params)
 
     if @team_member.save
       redirect_to @team_member
