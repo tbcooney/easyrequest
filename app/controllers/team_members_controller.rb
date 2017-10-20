@@ -43,6 +43,6 @@ private
   end
 
   def team_member_params
-    params.require(:team_member).permit(:company_name, :first_name, :last_name, :email_address, :phone_number, :rate)
+    params.require(:team_member).permit(:avatar, :company_name, :first_name, :last_name, :email_address, :phone_number, :rate)
   end
 end
