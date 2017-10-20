@@ -54,4 +54,7 @@ Rails.application.configure do
 
   # Needed for Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # let Paperclip know where ImageMagick must be installed
+  Paperclip.options[:command_path] = "/usr/local/bin/convert"
 end
