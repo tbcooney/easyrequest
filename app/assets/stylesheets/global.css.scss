@@ -33,11 +33,14 @@ img {
 .button-tertiary {
   font-size: 13px;
   font-weight: 600;
-  background-color: #425b76;
+  background-color: $blue;
   color: #fff;
-  border: 1px solid #425b76;
   border-radius: .1875rem;
   padding: .375rem;
+    &:hover {
+      color: #fff;
+      background-color: #007af5;
+    }
 }
 
 .button-tertiary-light {
