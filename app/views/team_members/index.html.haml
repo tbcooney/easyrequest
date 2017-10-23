@@ -1,9 +1,9 @@
 .wrapper_with_padding
   #team_members.clearfix
     .team_members_header
-      %h1{class: "page-header__heading"}Team Members
+      %h1{class: "page-header__heading"}My Team Members
       .new_team_member
-        = link_to "Add Team Member", new_team_member_path
+        = link_to "Add Team Member", new_team_member_path, class: 'button-tertiary'
     - unless @team_members.blank?
       %h5{class: "tab"} Active members
       - @team_members.each do |team_member|

@@ -3,7 +3,7 @@
     .requests_header
       %h1{class: "page-header__heading"}Job Requests
       .new_request
-        = link_to "Create Request", new_request_path
+        = link_to "Create Request", new_request_path, class: 'button-tertiary'
     - unless @requests.blank?
       %h5{class: "tab"} Open Requests
       - @requests.each do |request|

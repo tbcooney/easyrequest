@@ -2,8 +2,8 @@
   #team_member_show.clearfix
     .team_member
       %h1 Team member details
-      = link_to "Edit team member", edit_team_member_path(@team_member), class: "button"
-      = link_to "Delete team member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+      = link_to "Edit team member", edit_team_member_path(@team_member), class: "button-tertiary-light"
+      = link_to "Delete team member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button-tertiary-light destroy"
       ._block
         %p= "Created on #{@team_member.created_at.strftime("%B %d")}"
         .avatar=image_tag @team_member.avatar
@@ -22,21 +22,22 @@
           %h4 Rate
           %p= @team_member.rate
 
-      ._block
+    ._block
+      - unless @team_member.requests.blank?
         %h4 Assigned to
-        - unless @team_member.requests.blank?
-          - @team_member.requests.each do |request|
-            %h5{class: "tab"} Open Requests
-            %li
-              .request
-                %p.description= link_to request.description, request
-                .request_block
-                  - if request.team_member
-                    %p.assigned_to= "Assigned to "
-                    =image_tag request.team_member.avatar.url(:thumb), class: 'avatar'
-                    %p.assigned_to= link_to request.team_member.full_name, request.team_member
-                  %p.created_at= "Modified " + time_ago_in_words(request.updated_at) + " ago"
-        - else
+        - @team_member.requests.each do |request|
+          %h5{class: "tab"} Open Requests
+          %li
+            .request
+              %p.description= link_to request.description, request
+              .request_block
+                - if request.team_member
+                  %p.assigned_to= "Assigned to "
+                  =image_tag request.team_member.avatar.url(:thumb), class: 'avatar'
+                  %p.assigned_to= link_to request.team_member.full_name, request.team_member
+                %p.created_at= "Modified " + time_ago_in_words(request.updated_at) + " ago"
+      - else
+        ._tip_card
           = render 'empty_requests'
 
     .buttons

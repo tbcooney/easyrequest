@@ -44,6 +44,10 @@ li {
 #team_member_show {
   .team_member {
     margin-bottom: 2rem;
+    width: auto;
+    display: block;
+    border-bottom: 1px solid #E6E8EB;
+    position: relative;
       .team_member_block {
         display: inline-block;
         margin-right: 2rem;

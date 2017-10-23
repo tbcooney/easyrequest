@@ -38,6 +38,9 @@ img {
   border: none;
   border-radius: .1875rem;
   padding: .375rem 2rem;
+    .destroy {
+      background-color: red;
+    }
     &:hover {
       color: #fff;
       background-color: #007af5;
@@ -52,7 +55,19 @@ img {
   border: none;
   border-radius: .1875rem;
   color: #506e91;
-  padding: .375rem;
+  padding: .375rem 2rem;
+    &:hover {
+      background-color: #cbd6e2;
+      color: #506e91;
+    }
+}
+.destroy {
+  background-color: #ff6d6d;
+  color: #fff;
+    &:hover {
+        background-color: #f13e3e;
+        color: #fff;
+      }
 }
 
 .wrapper {

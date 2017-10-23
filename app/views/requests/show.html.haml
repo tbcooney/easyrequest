@@ -2,8 +2,8 @@
   #request_show.clearfix
     .request
       %h1 Request details
-      = link_to "Edit Request", edit_request_path(@request), class: "button"
-      = link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+      = link_to "Edit Request", edit_request_path(@request), class: "button-tertiary-light"
+      = link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button-tertiary-light destroy"
       ._block
         %p= "Created on #{@request.created_at.strftime("%B %d")} by #{@request.user.name}"
         %h2.description= @request.description
