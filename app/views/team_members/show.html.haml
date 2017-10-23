@@ -2,28 +2,42 @@
   #team_member_show.clearfix
     .team_member
       %h1 Team member details
-      %p= "Created on #{@team_member.created_at.strftime("%B %d")}"
-      .avatar=image_tag @team_member.avatar
-      %h2.full_name_team_member= @team_member.full_name
-      .team_member_block
-        %h4 Company Name
-        %p= @team_member.company_name
-      .team_member_block
-        %h4 Email Address
-        %p= @team_member.email_address
-      .team_member_block
-        %h4 Phone Number
-        %p= @team_member.phone_number
-      .team_member_block
-        %h4 Rate
-        %p= @team_member.rate
+      = link_to "Edit team member", edit_team_member_path(@team_member), class: "button"
+      = link_to "Delete team member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+      ._block
+        %p= "Created on #{@team_member.created_at.strftime("%B %d")}"
+        .avatar=image_tag @team_member.avatar
+        %h3.full_name_team_member= @team_member.full_name
+      ._block
+        .team_member_block
+          %h4 Company Name
+          %p= @team_member.company_name
+        .team_member_block
+          %h4 Email Address
+          %p= @team_member.email_address
+        .team_member_block
+          %h4 Phone Number
+          %p= @team_member.phone_number
+        .team_member_block
+          %h4 Rate
+          %p= @team_member.rate
 
-    .assigned_to
-      %h4 Assigned to
-    - @team_member.requests.each do |request|
-      %p.description= link_to request.description, request
+      ._block
+        %h4 Assigned to
+        - unless @team_member.requests.blank?
+          - @team_member.requests.each do |request|
+            %h5{class: "tab"} Open Requests
+            %li
+              .request
+                %p.description= link_to request.description, request
+                .request_block
+                  - if request.team_member
+                    %p.assigned_to= "Assigned to "
+                    =image_tag request.team_member.avatar.url(:thumb), class: 'avatar'
+                    %p.assigned_to= link_to request.team_member.full_name, request.team_member
+                  %p.created_at= "Modified " + time_ago_in_words(request.updated_at) + " ago"
+        - else
+          = render 'empty_requests'
 
     .buttons
       = link_to "All Requests", team_members_path, class: "button"
-      = link_to "Edit Request", edit_team_member_path(@team_member), class: "button"
-      = link_to "Delete Request", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button"

@@ -18,6 +18,6 @@
                 %p.assigned_to= "Assigned to "
                 =image_tag request.team_member.avatar.url(:thumb), class: 'avatar'
                 %p.assigned_to= link_to request.team_member.full_name, request.team_member
-              %p.created_at= "Created at " + time_ago_in_words(request.created_at) + " ago"
+              %p.created_at= "Modified " + time_ago_in_words(request.updated_at) + " ago"
     - else
-    = render 'empty_requests'
+      = render 'empty_requests'

@@ -2,26 +2,45 @@
   #request_show.clearfix
     .request
       %h1 Request details
-      %p= "Created on #{@request.created_at.strftime("%B %d")} by #{@request.user.email}"
-      %h2= @request.description
-      .request_block
-        %h4 Number of trucks
-        %p= @request.number_of_trucks
-      .request_block
-        %h4 Address
-        %p= @request.address
-      .request_block
-        %h4 Time and Date
-        %p= @request.date
-        %p= @request.time
+      = link_to "Edit Request", edit_request_path(@request), class: "button"
+      = link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+      ._block
+        %p= "Created on #{@request.created_at.strftime("%B %d")} by #{@request.user.name}"
+        %h2.description= @request.description
+        - if !@request.team_member
+          %span.not_assigned Not assigned
+      ._block
+        .request_block
+          %h4 Number of trucks
+          %p= @request.number_of_trucks
+        .request_block
+          %h4 Request address
+          %p= @request.address
+        .request_block
+          %h4 Request date
+          %p= @request.date.strftime("%B %d")
+        .request_block
+          %h4 Request time
+          %p= @request.time.strftime("%I:%M%p")
+      ._block
+        %h4 Notes
+        %p= @request.note
 
-    - if @request.team_member
-      .assigned_to
-        %h4 Assigned to
-      %p= @request.team_member.full_name
-      %p= @request.rate
+    ._block
+      %li
+        - if @request.team_member
+          %h4.assigned_to Assigned to
+          .request
+            ._block
+              =image_tag @request.team_member.avatar.url(:thumb), class: 'avatar'
+              %p.description= link_to @request.team_member.full_name, @team_member
+              .__block
+                %p.assigned_to= "Assigned to "
+                %p.assigned_to= link_to @request.team_member.full_name, @request.team_member
+                %p.created_at= "Modified " + time_ago_in_words(@request.updated_at) + " ago"
+        - else
+          ._tip_card
+            = render 'empty_team_members'
 
     .buttons
       = link_to "All Requests", requests_path, class: "button"
-      = link_to "Edit Request", edit_request_path(@request), class: "button"
-      = link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button"

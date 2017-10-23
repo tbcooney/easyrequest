@@ -62,7 +62,7 @@ img {
 
 .wrapper_with_padding {
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto;
   padding-bottom: 28px;
   min-height: 425px;
 }
@@ -126,6 +126,14 @@ img {
   margin: 2rem 0;
 }
 
+._tip_card {
+  padding: 16px;
+  background-color: #f7f9fa;
+  border-radius: 4px;
+  border: 1px solid #e6e8eb;
+  display: block;
+}
+
 #content {
   .page_header {
     strong {
@@ -158,23 +166,23 @@ header {
   background: transparent;
   top: 0;
   width: 100%;
+  border-bottom: 1px solid #DCE0E0;
   .header_inner {
     width: 90%;
     margin: 0 auto;
-    padding: 1.75rem 0;
     #logo img {
       display: inline-block;
       width: 144px;
       height: auto;
+      padding: 0.75rem 0;
     }
     nav {
-      float: right;
       a {
         text-decoration: none;
         color: $dark_gray;
         font-size: .8rem;
         line-height: 1.5;
-        margin-left: 1rem;
+        margin-right: 1rem;
         &:hover {
           color: $blue;
         }
@@ -201,6 +209,7 @@ footer {
     }
     nav {
       float: right;
+      padding: 0.75rem 0;
       a {
         text-decoration: none;
         color: $dark_gray;
