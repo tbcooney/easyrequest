@@ -47,6 +47,6 @@ private
   end
 
   def request_params
-    params.require(:request).permit(:description, :number_of_trucks, :address, :date, :note, :team_member_id)
+    params.require(:request).permit(:description, :number_of_trucks, :address, :date, :time, :note, :team_member_id)
   end
 end

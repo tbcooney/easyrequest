@@ -11,8 +11,9 @@
         %h4 Address
         %p= @request.address
       .request_block
-        %h4 Created on
+        %h4 Time and Date
         %p= @request.date
+        %p= @request.time
 
     - if @request.team_member
       .assigned_to
