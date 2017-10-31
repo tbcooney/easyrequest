@@ -66,43 +66,48 @@ li {
          border-radius: 1000px;
         }
       }
-      .request {
-        width: auto;
-        display: block;
-        border-bottom: 1px solid #E6E8EB;
-        position: relative;
-        padding: 16px;
-          .description {
-            display: inline-block;
-            margin: 0;
-            padding-bottom: 5px;
-            letter-spacing: 1px;
-            transition: all 0.25s ease 0s;
-          }
-          .avatar {
-            display: inline-block;
-            border-radius: 1000px;
-            width: 16px;
-            height: auto;
-          }
-          .assigned_to {
-            display: inline-block;
-            font-size: 12px;
-            margin: 0;
-            color: #637282;
-          }
-          .created_at {
-            display: inline-block;
-            font-size: 12px;
-            margin: 0;
-            color: #637282;
-          }
-      }
-  }
-  h4 {
-    font-weight: 600;
-    margin: 0;
-  }
+    }
+    li {
+      border-bottom: 1px solid #E6E8EB;
+    }
+    li:last-child {
+      border: none;
+    }
+    .request {
+      width: auto;
+      display: block;
+      position: relative;
+      padding: 16px;
+        .description {
+          display: inline-block;
+          margin: 0;
+          padding-bottom: 5px;
+          letter-spacing: 1px;
+          transition: all 0.25s ease 0s;
+        }
+        .avatar {
+          display: inline-block;
+          border-radius: 1000px;
+          width: 16px;
+          height: auto;
+        }
+        .assigned_to {
+          display: inline-block;
+          font-size: 12px;
+          margin: 0;
+          color: #637282;
+        }
+        .created_at {
+          display: inline-block;
+          font-size: 12px;
+          margin: 0;
+          color: #637282;
+        }
+    }
+}
+h4 {
+  font-weight: 600;
+  margin: 0;
 }
 
 a.view_team_member {

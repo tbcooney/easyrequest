@@ -23,4 +23,4 @@
       .block_label
         %p{class: "block_heading"} Delete my account
         %p{class: "block_subtext"} If you delete your account, your data will be gone forever.
-      = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+      = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button-tertiary-light destroy'

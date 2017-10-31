@@ -1,9 +1,10 @@
 .wrapper_with_padding
   #request_show.clearfix
+    .buttons
+      = link_to "Back to requests", requests_path, class: "button"
     .request
       %h1 Request details
       = link_to "Edit Request", edit_request_path(@request), class: "button-tertiary-light"
-      = link_to "Delete Request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button-tertiary-light destroy"
       ._block
         %p= "Created on #{@request.created_at.strftime("%B %d")} by #{@request.user.name}"
         %h2.description= @request.description
@@ -12,10 +13,16 @@
       ._block
         .request_block
           %h4 Number of trucks
-          %p= @request.number_of_trucks
+          - unless @request.number_of_trucks.blank?
+            %p= @request.number_of_trucks
+          - else
+            %p.block_subtext No trucks assigned
         .request_block
           %h4 Request address
-          %p= @request.address
+          - unless @request.address.blank?
+            %p= @request.address
+          - else
+            %p.block_subtext No address assigned
         .request_block
           %h4 Request date
           %p= @request.date.strftime("%B %d")
@@ -24,23 +31,28 @@
           %p= @request.time.strftime("%I:%M%p")
       ._block
         %h4 Notes
-        %p= @request.note
-
-    ._block
-      %li
-        - if @request.team_member
-          %h4.assigned_to Assigned to
-          .request
-            ._block
-              =image_tag @request.team_member.avatar.url(:thumb), class: 'avatar'
-              %p.description= link_to @request.team_member.full_name, @team_member
-              .__block
-                %p.assigned_to= "Assigned to "
-                %p.assigned_to= link_to @request.team_member.full_name, @request.team_member
-                %p.created_at= "Modified " + time_ago_in_words(@request.updated_at) + " ago"
+        - unless @request.note.blank?
+          %p= @request.note
         - else
-          ._tip_card
-            = render 'empty_team_members'
+          %p.block_subtext You haven't added a note to this request yet. Click here #{link_to "edit the request and add a note.", edit_request_path(@request)}
 
-    .buttons
-      = link_to "All Requests", requests_path, class: "button"
+    %div
+      %h4 Assigned to
+      - if @request.team_member
+        %li
+          .request
+            =image_tag @request.team_member.avatar.url(:thumb), class: 'avatar'
+            %p.description= link_to @request.team_member.full_name, @team_member
+            .__block
+              %p.assigned_to= "Assigned to "
+              %p.assigned_to= link_to @request.team_member.full_name, @request.team_member
+              %p.created_at= "Modified " + time_ago_in_words(@request.updated_at) + " ago"
+      - else
+        ._tip_card
+          = render 'empty_team_members'
+
+    .button-block
+      .block_label
+        %p{class: "block_heading"} Delete this request
+        %p{class: "block_subtext"} If you delete this request, the data will be gone forever.
+      = link_to "Delete request", request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "button-tertiary-light destroy"

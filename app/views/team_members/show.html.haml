@@ -1,7 +1,7 @@
 .wrapper_with_padding
   #team_member_show.clearfix
     .buttons
-      = link_to "Back to requests", team_members_path, class: "button"
+      = link_to "Back to team members", team_members_path, class: "button"
     .team_member
       %h1 Team member details
       = link_to "Edit team member", edit_team_member_path(@team_member), class: "button-tertiary-light"
@@ -23,11 +23,10 @@
           %h4 Rate
           %p= @team_member.rate
 
-    ._block
+    %div
+      %h4 Assigned to
       - unless @team_member.requests.blank?
-        %h4 Assigned to
         - @team_member.requests.each do |request|
-          %h5{class: "tab"} Open Requests
           %li
             .request
               %p.description= link_to request.description, request
@@ -40,3 +39,9 @@
       - else
         ._tip_card
           = render 'empty_requests'
+
+    .button-block
+      .block_label
+        %p{class: "block_heading"} Delete my account
+        %p{class: "block_subtext"} If you delete your account, your data will be gone forever.
+      = link_to "Delete team member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button-tertiary-light destroy"

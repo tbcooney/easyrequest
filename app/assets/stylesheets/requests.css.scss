@@ -62,11 +62,17 @@
         margin-right: 2rem;
       }
   }
+  li {
+    border-bottom: 1px solid #E6E8EB;
+  }
+  li:last-child {
+    border: none;
+  }
   .request {
     width: auto;
     display: block;
-    border-bottom: 1px solid #E6E8EB;
     position: relative;
+    padding: 16px;
       .description {
         display: inline-block;
         margin: 0;

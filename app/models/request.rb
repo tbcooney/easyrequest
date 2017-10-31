@@ -3,7 +3,7 @@ class Request < ApplicationRecord
   belongs_to :team_member, optional: true
 
   # Validations
-  validates_presence_of :description
+  validates_presence_of :description, :date, :time
 
   # Callbacks
   before_validation :set_rate

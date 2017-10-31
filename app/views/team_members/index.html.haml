@@ -12,6 +12,6 @@
             .avatar=image_tag team_member.avatar.url(:thumb)
             %p.full_name_team_member= link_to team_member.full_name, team_member
             %p.created_at= "Created " + time_ago_in_words(team_member.created_at) + " ago"
-            = link_to "View", team_member, class: 'view_team_member'
+            = link_to "View", team_member, class: 'view_team_member button-tertiary-light'
     - else
       = render 'empty_team'

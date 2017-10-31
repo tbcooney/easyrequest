@@ -12,7 +12,7 @@
             %p.description= link_to request.description, request
             - if !request.team_member
               %span.not_assigned Not assigned
-            = link_to "View", request, class: 'view_request'
+            = link_to "View", request, class: 'view_request button-tertiary-light'
             .request_block
               - if request.team_member
                 %p.assigned_to= "Assigned to "
