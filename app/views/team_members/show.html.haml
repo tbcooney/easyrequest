@@ -1,9 +1,10 @@
 .wrapper_with_padding
   #team_member_show.clearfix
+    .buttons
+      = link_to "Back to requests", team_members_path, class: "button"
     .team_member
       %h1 Team member details
       = link_to "Edit team member", edit_team_member_path(@team_member), class: "button-tertiary-light"
-      = link_to "Delete team member", team_member_path(@team_member), method: :delete, data: { confirm: "Are you sure?" }, class: "button-tertiary-light destroy"
       ._block
         %p= "Created on #{@team_member.created_at.strftime("%B %d")}"
         .avatar=image_tag @team_member.avatar
@@ -39,6 +40,3 @@
       - else
         ._tip_card
           = render 'empty_requests'
-
-    .buttons
-      = link_to "All Requests", team_members_path, class: "button"
