@@ -12,21 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20171023034843) do
 
-  create_table "requests", force: :cascade do |t|
+  create_table "requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
     t.integer  "number_of_trucks"
     t.string   "address"
     t.datetime "date"
     t.string   "rate"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
     t.integer  "team_member_id"
-    t.text     "note"
+    t.text     "note",             limit: 65535
     t.time     "time"
   end
 
-  create_table "team_members", force: :cascade do |t|
+  create_table "team_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "company_name"
     t.string   "first_name"
     t.string   "last_name"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171023034843) do
     t.integer  "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20171023034843) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
